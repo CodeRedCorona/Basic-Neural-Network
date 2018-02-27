@@ -1,5 +1,5 @@
 """
-This program implements a two layer neural network which learns a pattern in the given matrix.
+This program implements a three layer neural network which learns a pattern in the given matrix.
 """
 
 
