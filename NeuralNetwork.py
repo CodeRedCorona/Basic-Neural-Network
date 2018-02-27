@@ -2,36 +2,36 @@
 This program implements a three layer neural network which learns a pattern in the given matrix.
 """
 
-
 #Dependencies 
 import numpy as np
 
 #This class implements the Neural Network.
 class NeuralNetwork():
-    
-	def __init__(self):
+
+	def __init__(self, NumNodes):
 		#The random numbers are seed so that same numbers are produced every time the program is run.
 		np.random.seed(1)
 		
+		#NumNodes = No. of nodes in the middle Layer.
 		#This matrix contains the weights of the connections between layer0 and layer1.
-		#Since, layer0 contains 3 elements (inputs ) and layer1 contains 4 elements, we have a 3x4 matrix.
-		self.synaptic_weights_0 = 2 * np.random.random((3, 4)) - 1
+		#Since, layer0 contains 3 elements (inputs ) and layer1 contains NumNodes number of elements, we have a 3xNumNodes matrix.
+		self.synaptic_weights_0 = 2 * np.random.random((3, NumNodes)) - 1
 		
 		#This matrix contains the weights of the connections between layer1 and layer2.
 		#Since, layer1 contains 4 elements and layer2 contains only 1 element, we have a 4x1 matrix.
-		self.synaptic_weights_1 = 2 * np.random.random((4, 1)) - 1
-  
-    def __sigmoid(self, x):
+		self.synaptic_weights_1 = 2 * np.random.random((NumNodes, 1)) - 1
+
+	def __sigmoid(self, x):
 		#This function normalizes the value to a number between 0 and 1.
 		#This function converts the numbers to probabilities. 
-        return 1 / (1 + np.exp(-x))
-
-    def __sigmoid_derivative(self, x):
+		return 1 / (1 + np.exp(-x))
+		
+	def __sigmoid_derivative(self, x):
 		#This function returns the derivative of the function. 
 		#Essentially, it gives us the slope of the sigmoid function at any given point 
-        return x * (1 - x)
+		return x * (1 - x)
 
-    def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
+	def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
         #This is where the learning takes place.
 	
 		for iteration in xrange(number_of_training_iterations):
@@ -63,15 +63,15 @@ class NeuralNetwork():
 			self.synaptic_weights_0 += training_set_inputs.T.dot(l1_delta)
 
 
-    def think(self, inputs, weights):
+	def think(self, inputs, weights):
 
-        return self.__sigmoid(np.dot(inputs, weights))
+		return self.__sigmoid(np.dot(inputs, weights))
 
 
 if __name__ == "__main__":
 
 
-    neural_network = NeuralNetwork()
+    neural_network = NeuralNetwork(32)
 
     inputs = np.array([[0, 0, 1],
 		       [0, 1, 1],
@@ -83,4 +83,4 @@ if __name__ == "__main__":
 		       [1],
 		       [0]])
 
-    neural_network.train(inputs, output, 100000)
+    neural_network.train(inputs, output, 60000)
