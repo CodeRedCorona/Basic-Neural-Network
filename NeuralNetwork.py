@@ -74,13 +74,13 @@ if __name__ == "__main__":
     neural_network = NeuralNetwork()
 
     inputs = np.array([[0, 0, 1],
-					   [0, 1, 1],
-				       [1, 0, 1],
-				       [1, 1, 1]])
+		       [0, 1, 1],
+		       [1, 0, 1],
+		       [1, 1, 1]])
 
     output = np.array([[0],
-				       [1],
-				       [1],
-				       [0]])
+		       [1],
+		       [1],
+		       [0]])
 
     neural_network.train(inputs, output, 100000)
