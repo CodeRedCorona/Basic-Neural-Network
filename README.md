@@ -7,6 +7,7 @@ NEURAL NETWORK STRUCTURE:
 Number of nodes in the input layer (layer0) = 3
 Number of nodes in the hidden layer (layer1)= 4
 Number of nodes in the output layer (layer2)= 1
+Please have a look at the NetworkStructure.png file in the repo.
 
 SAMPLE INPUT/OUTPUT STRUCTURE:
 INPUT      OUTPUT
