@@ -1,6 +1,6 @@
 # Basic-Neural-Network
 DESCRIPTION:
-This program implements a two layer neural network which learns a pattern in the given matrix using only numpy as the dependency.
+This program implements a three layer neural network which learns a pattern in the given matrix using only numpy as the dependency.
 This is primitive nerual network and currently uses only four inputs to predict the pattern and diminsih the errors in further predictions.
 
 NEURAL NETWORK STRUCTURE: 
